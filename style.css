@@ -83,6 +83,10 @@ p {
 
 .nav-links li a {
     color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: color 0.2s ease;
 }
 
 .nav-links li a:hover {
@@ -90,6 +94,8 @@ p {
 }
 
 .menu-icon {
+    font-size: 1.5em;
+    cursor: pointer;
     color: var(--text-dark); /* Ensure icon is dark on light background */
 }
 
@@ -101,18 +107,57 @@ p {
 }
 
 .profile-image-container {
+    display: inline-block;
     border: 5px solid var(--accent-primary); /* Teal circle border */
+    border-radius: 50%;
+    padding: 5px;
+    margin-bottom: 30px;
+}
+
+.profile-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
 }
 
 .subtitle {
+    font-size: 1.2em;
+    font-weight: 500;
     color: var(--accent-primary); /* Teal color for the sub-title */
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.description {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    font-size: 1.1em;
+    color: var(--text-medium);
 }
 
 .description strong {
     color: var(--accent-secondary); /* Blue accent on bolded text */
+    font-weight: 600;
 }
 
 /* CTA BUTTONS */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.cta-button {
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    font-size: 1em;
+}
+
 .cta-button.primary {
     background-color: var(--accent-secondary); /* Use professional blue */
     color: var(--text-light); 
@@ -126,51 +171,106 @@ p {
     border: 2px solid var(--text-dark);
 }
 
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+
 /* CONTENT SECTIONS */
 .content-section {
     padding: 60px 0;
     border-top: 1px solid var(--border-color);
 }
-.about-highlight {
-    color: var(--accent-primary); /* Teal for the highlight text */
+
+.about-section {
+    text-align: center;
 }
 
-/* APPROACH & METRICS BOXES (light theme reversal) */
+.about-text strong {
+    color: var(--accent-secondary);
+    font-weight: 600;
+}
+
+.about-highlight {
+    color: var(--accent-primary); /* Teal for the highlight text */
+    font-style: italic;
+    font-weight: 500;
+    margin: 30px auto;
+    font-size: 1.2em;
+}
+
+/* APPROACH & METRICS BOXES */
 .approach-box, .metrics-box {
     background-color: var(--bg-sections); /* Use light gray background */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 450px;
+    margin: 40px auto;
+    text-align: left;
     border-left: 5px solid var(--accent-primary); /* Teal side border */
 }
 
 .approach-title, .metrics-title {
     color: var(--accent-secondary); /* Blue title */
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.approach-box ul {
+    list-style: none;
+    padding: 0;
 }
 
 .approach-box li {
+    margin-bottom: 10px;
     color: var(--text-dark); /* Dark text inside the box */
+    font-weight: 500;
 }
 
 .approach-box li i {
     color: var(--accent-primary); /* Teal dot color */
+    margin-right: 10px;
 }
 
 .metrics-grid {
-    border-top: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .metric-value {
+    font-size: 3em;
+    font-weight: 800;
     color: var(--accent-secondary); /* Blue for metric numbers */
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    color: var(--text-medium);
+    font-size: 0.9em;
 }
 
 /* SERVICES SECTION */
+.services-section .container p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .services-grid {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .service-card {
     background-color: var(--bg-sections); /* Light gray card background */
+    padding: 25px;
+    border-radius: 10px;
     border: 1px solid var(--border-color);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Soft shadow */
     border-top: 5px solid transparent;
+    transition: border-top 0.3s ease;
 }
 
 .service-card:hover {
@@ -178,41 +278,99 @@ p {
 }
 
 .service-card i {
+    font-size: 2em;
     color: var(--accent-primary); /* Teal icon color */
+    margin-bottom: 15px;
 }
 
 .service-card h3 {
     color: var(--text-dark);
 }
 
+.service-card ul {
+    list-style: none;
+    padding: 0;
+    font-size: 0.95em;
+    color: var(--text-medium);
+}
+
+.service-card ul li {
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
 .service-card ul li::before {
     content: "•";
     color: var(--accent-secondary); /* Blue bullet point */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
 }
 
 /* TECHNOLOGY STACK */
+.tech-stack-section h2 {
+    margin-bottom: 40px;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
 .tech-category {
     background-color: var(--bg-sections);
+    padding: 20px;
+    border-radius: 10px;
     border-left: 4px solid var(--accent-secondary); /* Blue side border */
 }
 
 .tech-category h3 {
     color: var(--accent-primary); /* Teal category title */
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.tech-category p {
+    color: var(--text-medium);
+    font-size: 0.9em;
 }
 
 /* PORTFOLIO HIGHLIGHTS (TABLE) */
+.portfolio-section p {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .portfolio-table {
     border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-header, .table-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
 }
 
 .table-header {
     background-color: var(--bg-sections);
+    font-weight: 700;
     color: var(--text-dark);
+    text-transform: uppercase;
+    font-size: 0.9em;
 }
 
 .table-row {
     background-color: var(--bg-light); /* White background for rows */
-    border-bottom: 1px solid var(--border-color);
 }
 .table-row:last-child {
     border-bottom: none;
@@ -220,34 +378,74 @@ p {
 
 .focus-area {
     color: var(--accent-primary);
+    font-weight: 600;
 }
 
 .deliverable {
     color: var(--text-dark);
+    font-weight: 500;
 }
 
 .impact {
     color: var(--text-medium);
+    font-size: 0.95em;
 }
 
 /* TESTIMONIALS */
+.testimonials-section {
+    text-align: center;
+    background-color: var(--bg-sections); /* Light gray background for this section */
+}
+
 .testimonial-box {
-    background-color: var(--bg-sections);
-    border-left: 5px solid var(--accent-secondary);
+    background-color: var(--bg-light);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 25px auto;
+    border-left: 5px solid var(--accent-secondary); /* Blue side border */
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .testimonial-box p {
+    font-size: 1.1em;
+    font-style: italic;
     color: var(--text-dark);
+    margin-bottom: 15px;
 }
 
 .testimonial-box .source {
+    display: block;
+    text-align: right;
+    font-weight: 600;
     color: var(--accent-primary);
 }
 
 /* CONTACT CTA FOOTER */
+.contact-cta-section {
+    text-align: center;
+    padding-bottom: 100px;
+    background-color: var(--bg-light);
+}
+
+/* Contact Info List */
+.contact-info-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
 .contact-item {
     background-color: var(--bg-sections);
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    min-width: 250px;
     border: 1px solid var(--border-color);
+    transition: border-color 0.3s;
 }
 
 .contact-item:hover {
@@ -255,65 +453,176 @@ p {
 }
 
 .contact-item i {
+    font-size: 1.8em;
     color: var(--accent-secondary);
+    margin-bottom: 5px;
 }
 
 .contact-item p {
+    font-weight: 500;
     color: var(--text-medium);
+    margin: 5px 0 0;
+    font-size: 0.9em;
 }
 
 .contact-item a {
     color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
 }
 
 .cta-button.primary.large {
-    background-color: var(--accent-primary);
+    background-color: var(--accent-primary); /* Use Teal for the primary final CTA */
     color: var(--text-light);
     border: 2px solid var(--accent-primary);
+    box-shadow: 0 4px 10px rgba(0, 163, 136, 0.3);
 }
 
 /* Contact Form Specific Styling */
 .contact-form-section {
+    max-width: 600px;
+    margin: 60px auto 0;
+    text-align: left;
     background-color: var(--bg-sections);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
 .contact-form-section h3 {
+    text-align: center;
+    font-size: 1.8em;
     color: var(--accent-secondary);
+    margin-bottom: 30px;
 }
 
 .contact-form label {
+    font-weight: 600;
     color: var(--text-dark);
 }
 
 .contact-form input, .contact-form select, .contact-form textarea {
-    background-color: var(--bg-light); /* White input fields */
+    padding: 12px;
     border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--bg-light); /* White input fields */
+    color: var(--text-dark);
+    font-size: 1em;
+    margin-top: 5px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact-form select option {
+    background-color: var(--bg-light);
     color: var(--text-dark);
 }
 
+.contact-form .cta-button.primary {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
 
-/* MEDIA QUERIES (Mobile responsiveness remains the same) */
+
+/* MEDIA QUERIES (Mobile responsiveness) */
 @media (max-width: 768px) {
-    /* FIX: Styling the hidden menu */
+    .container {
+        width: 95%;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .cta-button {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    /* Mobile Navigation Fix */
+    .menu-icon {
+        display: block; 
+    }
+
     .nav-links {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
         background-color: var(--bg-light); /* White mobile menu background */
+        flex-direction: column;
+        display: none;
+        text-align: center;
         border-top: 1px solid var(--border-color);
+        z-index: 999;
     }
 
     .nav-links li {
+        margin: 0;
         border-bottom: 1px solid var(--border-color);
+        display: block;
     }
     
     .nav-links li a {
+        padding: 15px;
+        display: block;
         color: var(--text-dark); /* Dark link text */
     }
-    
-    /* Table changes for smaller screens */
-    .table-row {
-        background-color: var(--bg-sections); /* Light gray card background */
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Mobile Table changes */
+    .portfolio-table .table-header, .portfolio-table .table-row {
+        grid-template-columns: 1fr;
+        border-bottom: none;
+        padding: 15px;
     }
     
-    .focus-area::before, .deliverable::before, .impact::before {
+    .table-header {
+        display: none;
+    }
+
+    .table-row {
+        background-color: var(--bg-sections); /* Light gray card background */
+        margin-bottom: 20px;
+        border-radius: 10px;
+        border: 1px solid var(--border-color);
+    }
+    
+    .table-row p {
+        padding: 5px 0;
+    }
+    
+    .focus-area::before {
+        content: "Focus: ";
+        font-weight: normal;
         color: var(--text-medium);
+    }
+    .deliverable::before {
+        content: "Deliverable: ";
+        font-weight: normal;
+        color: var(--text-medium);
+    }
+    .impact::before {
+        content: "Impact: ";
+        font-weight: normal;
+        color: var(--text-medium);
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex;
+        gap: 25px;
+    }
+    .menu-icon {
+        display: none;
     }
 }
